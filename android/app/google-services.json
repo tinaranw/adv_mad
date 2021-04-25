@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "873526804439",
+    "project_id": "adv-mad-2020-even-77a11",
+    "storage_bucket": "adv-mad-2020-even-77a11.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873526804439:android:8e0be8438ad422546e5592",
+        "android_client_info": {
+          "package_name": "com.example.adv_mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873526804439-v5qgbkei1ti8gtpv3q5pu0g2m17rf1d2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVl2SW0PYS-OdAvXXOIl-YQfPWSiylJz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873526804439-v5qgbkei1ti8gtpv3q5pu0g2m17rf1d2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,4 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 part 'login.dart';
 part 'mainmenu.dart';
 part 'register.dart';
+part 'adddata.dart';
+part 'listdata.dart';
+part 'myaccount.dart';
 

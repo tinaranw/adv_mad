@@ -7,45 +7,44 @@ class MainMenu extends StatefulWidget {
 }
 
 class _MainMenuState extends State<MainMenu> {
-  bool isLoading = false;
-  String msg = "Fail";
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    AddData(),
+    ListData(),
+    MyAccount()
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Main Menu"),
-        ),
-        body: Container(
-          // ignore: deprecated_member_use
-          child: ElevatedButton.icon(
-              onPressed: () async {
-                //melanjutkan ke next stepe
-                setState(() {
-                  isLoading = true;
-                });
-                // String msg = await AuthServices.signUp(users);
-                await AuthServices.signOut().then((value) {
-                  if (value) {
-                    setState(() {
-                      isLoading = false;
-                    });
-                    ActivityServices.showToast(
-                        "Login success", Colors.greenAccent);
-                    Navigator.pushReplacementNamed(context, Login.routeName);
-                  } else {
-                    setState(() {
-                      isLoading = false;
-                    });
-                    ActivityServices.showToast(msg, Colors.redAccent);
-                  }
-                });
-              },
-              icon: Icon(Icons.logout),
-              label: Text("Logout"),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.red[300],
-                elevation: 0,
-              )),
-        ));
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.note_add_outlined), label: 'Add Data'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt_rounded), label: 'List Data'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_box_rounded), label: 'My Account'),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        elevation: 0,
+      ),
+    );
   }
 }

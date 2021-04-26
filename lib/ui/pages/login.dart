@@ -141,7 +141,8 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                             color: Colors.deepOrange[400], fontSize: 16)))
               ],
-            )
+            ),
+            isLoading == true ? ActivityServices.loadings() : Container()
           ],
         ),
       ),

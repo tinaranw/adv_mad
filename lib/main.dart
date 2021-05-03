@@ -16,10 +16,11 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme(),
       initialRoute: '/',
       routes: {
-        '/': (context) => Login(),
+        '/': (context) => Splash(),
         // '/mainmenu': (context) => MainMenu()
 
         //lebih modular
+        Splash.routeName: (context) => Splash(),
         MainMenu.routeName: (context) => MainMenu(),
         Login.routeName: (context) => Login(),
         Register.routeName: (context) => Register(),

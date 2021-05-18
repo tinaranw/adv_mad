@@ -1,8 +1,21 @@
+import 'dart:io';
+
 import 'package:adv_mad/shared/shared.dart';
 import 'package:adv_mad/ui/pages/pages.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void enablePlatformOverrideForDesktop(){
+  if(!kIsWeb && (Platform.isMacOS || Platform.isAndroid || Platform.isLinux)){
+    debugDefaultTargetPlatformOverride = TargetPlatform.fuchsia;
+  }
+}
+
+void main() async{
+  enablePlatformOverrideForDesktop();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
